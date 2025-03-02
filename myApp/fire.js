@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth';
 import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check'
 
 const config = {
-    apiKey: "AIzaSyBVoNU3rcxrf2KU5iqNm5XPnzXEIAW-CEQ",
+    apiKey: ,
     authDomain: "puzzels-28637.firebaseapp.com",
     projectId: "puzzels-28637",
     storageBucket: "puzzels-28637.firebasestorage.app",
