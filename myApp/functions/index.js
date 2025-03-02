@@ -3,7 +3,7 @@ import openai from 'openai'
 
 export const targets = functions.https.onRequest({cors: true}, async (req, res) => {
     const ai = new openai({
-        apiKey: "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", 
+        apiKey: "", 
     })
     const text = req.query.text; 
     const response = await ai.chat.completions.create({
