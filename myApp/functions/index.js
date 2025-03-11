@@ -3,7 +3,7 @@ import OpenAI from 'openai/index.mjs'
 import { createHash, randomBytes } from 'crypto'
 
 const ai = new OpenAI({
-    apiKey: "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"
+    apiKey: ""
 })
 const lists = ["HMAC hashes", "E2EE encryption", "RSA encryption", "AES encryption", "hybrid cryptosystems"]
 const items = async () => {
