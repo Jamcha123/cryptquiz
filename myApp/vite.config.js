@@ -5,4 +5,11 @@ import tail from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tail()],
+  server: {
+    cors: {
+      origin: true, 
+      credentials: true, 
+      methods: "get"
+    }
+  }
 })
