@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './App.css'
 import * as THREE from 'three';
 import anime from 'animejs';
@@ -6,14 +6,19 @@ import {motion} from 'framer-motion'
 import axios from 'axios'; 
 import * as cheerio from 'cheerio'; 
 import fs from 'fs'
+import git from './assets/github-mark.svg'
 import copy from './assets/copy.svg'
 
-
-export default function App(){
+function AddMain(){
   const [hint, sethint] = useState(false)
   const [copy1, setCopy] = useState("hello")
 
   const copied = () => {
+    const timer = setTimeout(() => {
+      document.getElementById("content").style.color = "white"
+      clearTimeout(timer)
+    }, 1000)
+    document.getElementById("content").style.color = "green"
     navigator.clipboard.writeText(copy1)
   }
 
@@ -59,12 +64,12 @@ export default function App(){
     items()
   }, [])
   return(
-    <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[fit-content] h-[40em] m-auto p-[0] flex flex-col align-middle justify-center text-center  ">
+    <div className="relative w-[fit-content] h-[90%] m-auto p-[0] flex flex-col align-middle justify-center text-center  ">
       <div className="flex flex-row align-middle justify-center text-center min-h-[10em] min-w-[100%] ">
         <div className="flex flex-col align-middle justify-center text-center min-h-[100%] min-w-[fit-content] ">
           <h1 className="text-3xl text-gray-100 " >CryptQuiz - hash quiz, be patient</h1>
           <p className="text-xl mt-[2%] text-gray-300 ">Get the wordlist and use hashid and hashcat  </p>
-          <p className="text-xl mt-[2%] text-gray-300">Or google the hash type</p>
+          <p className="text-xl mt-[2%] text-gray-300">Or use tools like <a className="underline underline-offset-4 text-violet-300" href="https://10015.io/tools/md5-encrypt-decrypt">10015.io</a></p>
         </div>
       </div>
       <div className="flex flex-row align-middle justify-evenly text-center min-h-[5em] min-w-[100%] ">
@@ -93,6 +98,18 @@ export default function App(){
           </div>
         </div>
       </div>
+      <div className="flex flex-row align-middle justify-center text-center min-h-[fit-content] min-w-[100%] ">
+        <a href="https://github.com/sponsors/Jamcha123?preview=true" className="text-xl mt-[5%] text-violet-500 underline-offset-4 underline ">
+          Sponser me
+        </a>
+      </div>
+    </div>
+  )
+}
+export default function App(){
+  return(
+    <div className="fixed w-[100%] h-[100%] m-auto p-[0] flex flex-col align-middle justify-center ">
+      <AddMain></AddMain>
     </div>
   )
 }

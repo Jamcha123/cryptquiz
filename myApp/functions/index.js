@@ -3,7 +3,7 @@ import OpenAI from 'openai/index.mjs'
 import { createHash, randomBytes } from 'crypto'
 
 const ai = new OpenAI({
-    apiKey: ""
+    apiKey: 
 })
 const lists = ["HMAC hashes", "E2EE encryption", "RSA encryption", "AES encryption", "hybrid cryptosystems"]
 const items = async () => {
@@ -18,7 +18,7 @@ const items = async () => {
     })
     return response.choices[0].message["content"].split(" ")
 }
-const types = ["SHA1", "SHA256", "SHA224", "MD5"]
+const types = ["SHA1", "MD5"]
 
 export const hashes = functions.https.onRequest({cors: true}, (req, res) => {
     const key = randomBytes(16)
